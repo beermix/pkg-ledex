@@ -114,7 +114,7 @@ CONFIGURE_ARGS += \
 	--with-pthreads \
 	--with-pthreads \
 	--enable-cachedb \
-	--enable-dnscrypt \
+	--disable-dnscrypt \
 	--disable-dnstap \
 	--enable-checking \
 	--enable-allsymbols \
