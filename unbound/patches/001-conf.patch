@@ -58,7 +58,7 @@ index 83e7c5c..3ea2b28 100644
 +
 +	# uses less memory but less performance
 +	outgoing-range: 60
-+	num-queries-per-thread: 1024
++	num-queries-per-thread: 30
 +
 +	# exclude large responses
 +	msg-buffer-size: 8192
