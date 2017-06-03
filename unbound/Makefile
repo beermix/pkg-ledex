@@ -88,7 +88,7 @@ define Package/unbound-host
   CATEGORY:=Network
   SUBMENU:=IP Addresses and Names
   TITLE+= (lookup utility)
-  DEPENDS+= +libunbound +libevent2 +libpthread
+  DEPENDS+= +libunbound
 endef
 
 define Package/unbound-host/description
@@ -100,7 +100,7 @@ define Package/libunbound
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE+= (library)
-  DEPENDS+= +libpthread
+  DEPENDS+= +libpthread +libevent2
 endef
 
 define Package/libunbound/description
