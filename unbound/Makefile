@@ -110,6 +110,8 @@ define Package/libunbound/description
   This package contains the Unbound shared library.
 endef
 
+TARGET_CFLAGS += -O3
+
 CONFIGURE_ARGS += \
 	--disable-dsa \
 	--disable-gost \
