@@ -47,9 +47,7 @@ endef
 
 Package/shadowsocks-libev-server/description = $(Package/shadowsocks-libev/description)
 
-TARGET_CFLAGS += -O3
-
-CONFIGURE_ARGS += --disable-ssp --disable-documentation --disable-assert --disable-shared --disable-silent-rules
+CONFIGURE_ARGS += --disable-ssp --disable-documentation --disable-assert --disable-shared
 
 define Package/shadowsocks-libev/install
 	$(INSTALL_DIR) $(1)/usr/bin

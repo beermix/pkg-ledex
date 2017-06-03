@@ -8,13 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=unbound
-PKG_VERSION:=e164333
+PKG_VERSION:=1.6.2
+PKG_RELEASE:=2
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/jedisct1/unbound
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=f8bac5aaaaf1cbb1b1578d37cba54e5f45c2ef1d
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
+PKG_LICENSE:=BSD-3-Clause
+PKG_LICENSE_FILES:=LICENSE
+PKG_MAINTAINER:=Eric Luehrsen <ericluehrsen@hotmail.com>
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://www.unbound.net/downloads
+PKG_HASH:=1a323d72c32180b7141c9e6ebf199fc68a0208dfebad4640cd2c4c27235e3b9c
 
 PKG_BUILD_DEPENDS:=libexpat
 PKG_BUILD_PARALLEL:=1
@@ -49,7 +52,7 @@ define Package/unbound-anchor
   CATEGORY:=Network
   SUBMENU:=IP Addresses and Names
   TITLE+= (DSKEY utility)
-  DEPENDS+= +unbound +libexpat +libevent2 +libsodium +libpthread +libopenssl
+  DEPENDS+= +unbound +libexpat
 endef
 
 define Package/unbound-anchor/description
@@ -107,20 +110,14 @@ define Package/libunbound/description
   This package contains the Unbound shared library.
 endef
 
+#TARGET_CFLAGS += -O3
+
 CONFIGURE_ARGS += \
 	--disable-dsa \
 	--disable-gost \
-	--disable-rpath \
-	--with-pthreads \
-	--with-pthreads \
-	--enable-cachedb \
-	--enable-dnscrypt \
-	--disable-dnstap \
-	--enable-checking \
 	--enable-allsymbols \
+	--disable-rpath \
 	--with-libexpat="$(STAGING_DIR)/usr" \
-	--with-libevent="$(STAGING_DIR)/usr" \
-	--with-libsodium="$(STAGING_DIR)/usr" \
 	--with-ssl="$(STAGING_DIR)/usr" \
 	--with-pidfile=/var/run/unbound.pid \
 	--with-user=unbound
