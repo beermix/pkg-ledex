@@ -49,7 +49,7 @@ define Package/unbound-anchor
   CATEGORY:=Network
   SUBMENU:=IP Addresses and Names
   TITLE+= (DSKEY utility)
-  DEPENDS+= +unbound +libexpat +libevent2 +libsodium +libpthread +libopenssl
+  DEPENDS+= +unbound +libexpat +libevent2 +libpthread +libopenssl
 endef
 
 define Package/unbound-anchor/description
@@ -111,7 +111,6 @@ CONFIGURE_ARGS += \
 	--disable-dsa \
 	--disable-gost \
 	--disable-rpath \
-	--with-pthreads \
 	--with-pthreads \
 	--enable-cachedb \
 	--disable-dnscrypt \
