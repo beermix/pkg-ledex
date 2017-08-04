@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=unbound
-PKG_VERSION:=a32e447
+PKG_VERSION:=f9929f6
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/jedisct1/unbound
