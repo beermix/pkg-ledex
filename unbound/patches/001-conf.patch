@@ -6,7 +6,7 @@ index 5396029..cbb51ec 100644
 -#
 -# Example configuration file.
 -#
--# See unbound.conf(5) man page, version 1.6.4.
+-# See unbound.conf(5) man page, version 1.6.5.
 -#
 -# this is a comment.
 +##############################################################################
@@ -38,10 +38,10 @@ index 5396029..cbb51ec 100644
 +
 +	# no threads and no memory slabs for threads
 +	num-threads: 2
-+	msg-cache-slabs: 1
-+	rrset-cache-slabs: 1
-+	infra-cache-slabs: 1
-+	key-cache-slabs: 1
++	msg-cache-slabs: 2
++	rrset-cache-slabs: 2
++	infra-cache-slabs: 2
++	key-cache-slabs: 2
 +
 +	# don't be picky about interfaces but consider your firewall
 +	interface: 0.0.0.0
