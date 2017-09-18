@@ -8,13 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=unbound
-PKG_VERSION:=d23ed7b
+PKG_VERSION:=1.6.6
+PKG_RELEASE:=1
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/jedisct1/unbound
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=f8bac5aaaaf1cbb1b1578d37cba54e5f45c2ef1d
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
+PKG_LICENSE:=BSD-3-Clause
+PKG_LICENSE_FILES:=LICENSE
+PKG_MAINTAINER:=Eric Luehrsen <ericluehrsen@hotmail.com>
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://www.unbound.net/downloads
 
 PKG_BUILD_DEPENDS:=libexpat
 PKG_BUILD_PARALLEL:=1
@@ -49,7 +51,7 @@ define Package/unbound-anchor
   CATEGORY:=Network
   SUBMENU:=IP Addresses and Names
   TITLE+= (DSKEY utility)
-  DEPENDS+= +unbound +libexpat +libevent2 +libpthread +libopenssl +libsodium
+  DEPENDS+= +unbound +libexpat
 endef
 
 define Package/unbound-anchor/description
@@ -100,7 +102,7 @@ define Package/libunbound
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE+= (library)
-  DEPENDS+= +libpthread +libevent2 +libsodium
+  DEPENDS+= +libpthread
 endef
 
 define Package/libunbound/description
@@ -111,18 +113,7 @@ CONFIGURE_ARGS += \
 	--disable-dsa \
 	--disable-gost \
 	--enable-allsymbols \
-	--disable-rpath \
-	--enable-pie \
-	--enable-relro-now \
-	--enable-shared \
-	--enable-cachedb \
-	--enable-dnscrypt \
-	--disable-dnstap \
-	--enable-checking \
-	--enable-allsymbols \
 	--with-libexpat="$(STAGING_DIR)/usr" \
-	--with-libevent="$(STAGING_DIR)/usr" \
-	--with-libsodium="$(STAGING_DIR)/usr" \
 	--with-ssl="$(STAGING_DIR)/usr" \
 	--with-pidfile=/var/run/unbound.pid \
 	--with-user=unbound
