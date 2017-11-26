@@ -14,8 +14,7 @@ PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://dist.torproject.org/ \
 	https://archive.torproject.org/tor-package-archive
-
-#PKG_HASH:=1df5dd4894bb2f5e0dc96c466955146353cf33ac50cd997cfc1b28ea3ed9c08f
+PKG_HASH:=7df6298860a59f410ff8829cf7905a50c8b3a9094d51a8553603b401e4b5b1a1
 PKG_MAINTAINER:=Hauke Mehrtens <hauke@hauke-m.de>
 PKG_LICENSE_FILES:=LICENSE
 
@@ -41,7 +40,7 @@ endef
 define Package/tor
 $(call Package/tor/Default)
   TITLE:=An anonymous Internet communication system
-  DEPENDS:=+libevent2 +libopenssl +libpthread +librt +zlib +libcap +liblzma
+  DEPENDS:=+libevent2 +libopenssl +libpthread +librt +zlib +libcap
 endef
 
 define Package/tor/description
@@ -98,6 +97,7 @@ CONFIGURE_ARGS += \
 	--disable-libscrypt \
 	--disable-unittests \
 	--disable-largefile \
+	--disable-lzma \
 	--with-tor-user=tor \
 	--with-tor-group=tor
 
