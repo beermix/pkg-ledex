@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ENABLED=yes
+PROCS=i2pd
+ARGS="--conf=/etc/i2pd.conf --pidfile=/var/run/i2pd.pid --logfile=/var/log/i2pd.log --daemon --service"
+PREARGS=""
+DESC=$PROCS
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+. /etc/init.d/rc.func
