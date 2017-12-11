@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=i2pd
-PKG_VERSION:=2.17
+PKG_VERSION:=2.17.0
 PKG_REV:=1c970b07147908fd2351577f09298fa82601f7a2
-PKG_RELEASE:=2
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -38,7 +38,7 @@ TARGET_LDFLAGS += -latomic
 define Package/i2pd/conffiles
 /etc/i2pd.conf
 /etc/i2pd_tunnels.conf
-/etc/subscription.txt
+/var/lib/i2pd/subscription.txt
 endef
 
 define Package/i2pd/install
