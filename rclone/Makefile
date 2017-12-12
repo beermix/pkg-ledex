@@ -16,7 +16,7 @@ GOPKG_SOURCE=GO_$(PKG_NAME)-$(PKG_VERSION)-$(PKG_RELEASE).tar.bz2
 
 #!!! uncomment PKG_SOURCE to download fixed version
 #PKG_SOURCE=$(GOPKG_SOURCE)
-PKG_COMMIT=1248beb0b259327d60ed75171016bcacc8420856
+PKG_COMMIT=84701e376ac76ea5c5bd075e459f39561dc83b8e
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/golang.mk

@@ -23,7 +23,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/i2pd
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libz +libopenssl +boost-filesystem +boost-program_options +boost-date_time +boost-chrono +boost-system +boost-thread +libatomic +libminiupnpc
+	DEPENDS:=+zlib +libopenssl +boost-filesystem +boost-program_options +boost-date_time +boost-chrono +boost-system +boost-thread +libatomic +libminiupnpc
 	TITLE:=simplified C++ implementation of I2P client
 	URL:=$(PKG_SOURCE_URL)
 	MAINTAINER:=Entware team, http://entware.net
@@ -38,7 +38,7 @@ TARGET_LDFLAGS += -latomic
 define Package/i2pd/conffiles
 /etc/i2pd.conf
 /etc/i2pd_tunnels.conf
-/var/lib/i2pd/subscription.txt
+/etc/i2pd/subscription.txt
 endef
 
 define Package/i2pd/install
@@ -49,11 +49,11 @@ define Package/i2pd/install
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/contrib/tunnels.conf \
 		$(1)/etc/i2pd_tunnels.conf
 	$(INSTALL_BIN) ./files/S30i2p $(1)/etc/init.d
-	$(INSTALL_DIR) $(1)/var/lib/i2pd
+	$(INSTALL_DIR) $(1)/etc/i2pd
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/contrib/subscriptions.txt \
-		$(1)/var/lib/i2pd
+		$(1)/etc/i2pd
 	$(CP) $(PKG_BUILD_DIR)/contrib/certificates \
-		$(1)/var/lib/i2pd
+		$(1)/etc/i2pd
 endef
 
 define Package/i2pd/postinst

@@ -32,8 +32,8 @@ define Package/shell2http/description
 endef
 
 define Package/shell2http/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/$(PKG_NAME) $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/$(PKG_NAME) $(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,shell2http))
