@@ -15,8 +15,8 @@ PKG_GOGET:=github.com/ncw/rclone
 GOPKG_SOURCE=GO_$(PKG_NAME)-$(PKG_VERSION)-$(PKG_RELEASE).tar.bz2
 
 #!!! uncomment PKG_SOURCE to download fixed version
-#PKG_SOURCE=$(GOPKG_SOURCE)
-PKG_COMMIT=84701e376ac76ea5c5bd075e459f39561dc83b8e
+PKG_SOURCE=$(GOPKG_SOURCE)
+PKG_COMMIT=d96e45ba5b060c472cb5f8a4769060f14eadf63a
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/golang.mk
@@ -43,8 +43,8 @@ define Package/rclone/description
 endef
 
 define Package/rclone/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/$(PKG_NAME) $(1)/opt/bin
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/$(PKG_NAME) $(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,rclone))
