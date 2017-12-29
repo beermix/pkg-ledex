@@ -40,11 +40,16 @@ endef
 
 define Build/Configure
 	$(call Build/Configure/Default, \
-		--without-bash-malloc \
+		--disable-static \
+		--enable-cond-command \
+		--enable-history \
+		--enable-job-control \
 		--enable-readline \
-		--with-installed-readline \
-		--cache-file=/dev/null \
-		--disable-rpath \
+		--enable-extended-glob \
+		--enable-progcomp \
+		--enable-arith-for-command \
+		--enable-directory-stack \
+		--with-bash-malloc=no  \
 		--bindir=/bin \
 	)
 endef

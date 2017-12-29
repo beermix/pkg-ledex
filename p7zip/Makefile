@@ -19,6 +19,9 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
+TARGET_CXXFLAGS += -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition -fstack-protector-strong
+TARGET_CFLAGS := -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition -fstack-protector-strong
+
 define Package/p7zip
 	SECTION:=utils
 	CATEGORY:=Utilities
