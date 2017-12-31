@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=p7zip
 PKG_VERSION:=16.02
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION)_src_all.tar.bz2
 PKG_SOURCE_URL:=@SF/p7zip/p7zip/$(PKG_VERSION)
@@ -19,8 +19,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
-TARGET_CXXFLAGS += -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition -fstack-protector-strong
-TARGET_CFLAGS := -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition -fstack-protector-strong
+TARGET_CPPFLAGS += -O3 -ffat-lto-objects -flto -fno-semantic-interposition -fstack-protector-strong
 
 define Package/p7zip
 	SECTION:=utils

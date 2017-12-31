@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gotty
-PKG_VERSION:=0.0.13-2017-03-29
+PKG_VERSION:=a080c85
 PKG_RELEASE:=1
 PKG_GOGET:=github.com/yudai/gotty
 
