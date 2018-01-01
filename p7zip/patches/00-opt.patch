@@ -90,18 +90,6 @@ diff -Naur p7zip-16.02-orig/makefile.linux_x86_asm_gcc_4.X_fltk p7zip-16.02/make
  
  ALLFLAGS=${OPTFLAGS} -m32 -pipe \
      	-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE \
-diff -Naur p7zip-16.02-orig/makefile.machine p7zip-16.02/makefile.machine
---- p7zip-16.02-orig/makefile.machine	2017-12-31 08:52:29.932879699 +0300
-+++ p7zip-16.02/makefile.machine	2017-12-31 08:59:06.010297492 +0300
-@@ -1,7 +1,7 @@
- 
- 
- # OPTFLAGS=-Ofast -flto -march=native -funroll-loops -s
--OPTFLAGS=-O -s
-+OPTFLAGS=-O2 -msse2 -s -Wcheck -fstack-security-check
- 
- # use "-m32" to have a 32bits executable
- ALLFLAGS=-m64 ${OPTFLAGS} -pipe \
 diff -Naur p7zip-16.02-orig/makefile.macosx_gcc_32bits_asm p7zip-16.02/makefile.macosx_gcc_32bits_asm
 --- p7zip-16.02-orig/makefile.macosx_gcc_32bits_asm	2017-12-31 08:52:29.908879699 +0300
 +++ p7zip-16.02/makefile.macosx_gcc_32bits_asm	2017-12-31 08:56:26.076029745 +0300
