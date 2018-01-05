@@ -19,7 +19,9 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
-TARGET_CPPFLAGS += -O3 -ffat-lto-objects -flto -fno-semantic-interposition -fstack-protector-strong
+define Build/Compile
+	$(MAKE) -C $(PKG_BUILD_DIR) all OPTFLAGS="-O3 -pipe -fomit-frame-pointer"
+endef
 
 define Package/p7zip
 	SECTION:=utils
