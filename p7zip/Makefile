@@ -20,7 +20,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)_$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) all OPTFLAGS="-O3 -pipe -fomit-frame-pointer"
+	$(MAKE) -C $(PKG_BUILD_DIR) all OPTFLAGS="-O2"
 endef
 
 define Package/p7zip
