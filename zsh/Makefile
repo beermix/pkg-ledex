@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=zsh
 PKG_VERSION:=5.4.2
-PKG_RELEASE:=2
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/zsh
@@ -26,7 +26,7 @@ define Package/zsh
   CATEGORY:=Utilities
   SUBMENU:=Shells
   TITLE:=The Z shell
-  DEPENDS:=+libncurses +libncursesw +libpcre +librt +libcap
+  DEPENDS:=+libncurses +libncursesw +libpcre +librt +libpcap
   URL:=http://www.zsh.org/
 endef
 
@@ -46,7 +46,7 @@ define Build/Configure
 		--enable-dynamic \
 		--enable-libc-musl \
 		--enable-pcre \
-		--enable-cap \
+		--enable-cap=no \
 		--enable-multibyte \
 		--enable-unicode9 \
 		--enable-runhelpdir=$(CONFIGURE_PREFIX)/share/zsh/$(PKG_VERSION)/help \
