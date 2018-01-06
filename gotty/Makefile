@@ -15,8 +15,8 @@ PKG_GOGET:=github.com/yudai/gotty
 GOPKG_SOURCE=GO_$(PKG_NAME)-$(PKG_VERSION)-$(PKG_RELEASE).tar.bz2
 
 #!!! uncomment PKG_SOURCE to download fixed version
-PKG_SOURCE=$(GOPKG_SOURCE)
-PKG_COMMIT=e721482e57bea8af9191a5732a8580b3c6c43d7d
+#PKG_SOURCE=$(GOPKG_SOURCE)
+#PKG_COMMIT=e721482e57bea8af9191a5732a8580b3c6c43d7d
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/golang.mk
